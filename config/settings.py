@@ -1,9 +1,13 @@
 import environ
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = BASE_DIR / 'templates'
+STATIC_DIR = BASE_DIR / 'static'
+MEDIA_DIR = BASE_DIR / 'media'
 
 env = environ.Env(
     # set casting, default value
@@ -41,7 +45,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My Apps
+    'accounts.apps.AccountsConfig',
+    'authority.apps.AuthorityConfig',
+    'customer.apps.CustomerConfig',
+    'home.apps.HomeConfig',
+    'payment.apps.PaymentConfig',
+    'report.apps.ReportConfig',
+    'shipping.apps.ShippingConfig',
+    # 3rd Party Apps and Packages
+    'widget_tweaks',
+    'django_filters',
 ]
+
+ROOT_URLCONF = 'config.urls'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +75,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ TEMPLATES_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -117,11 +134,27 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Custom Configuration and Settings
+
+# Custom user model
+AUTH_USER_MODEL = 'accounts.User'
+
+LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = '/login/'
+
+# Media files(Uploaded Files)
+MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_URL = '/media/'
+
+# Messages Setting
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
