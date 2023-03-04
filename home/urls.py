@@ -9,4 +9,5 @@ urlpatterns = [
 
     path('', home_main.IndexView.as_view(),name="index"),
     path('home/', home_main.IndexView.as_view(),name="home"),
+    path('contact/', home_main.ContactView.as_view(),name="contact"),
 ]

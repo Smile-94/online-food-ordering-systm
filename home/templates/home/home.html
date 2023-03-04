@@ -1,7 +1,12 @@
-{% extends 'home_base/base_home.html' %}
+{% extends 'home_base/base.html' %}
 {% load static %}
 
 {% block title %} {{title}} {% endblock title %}
+
+{% block banner %}
+        {% include "components/banner.html" %}
+
+{% endblock banner %}
 
 
 {% block body %}
@@ -11,8 +16,8 @@
         <div class="row">
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{% static 'assets/img/categories/cat-1.jpg' %}">
-                        <h5><a href="#">Fresh Fruit</a></h5>
+                    <div class="categories__item set-bg" data-setbg="{% static 'assets/img/categories/burger-2.jpg' %}">
+                        <h5><a href="#">Appetizers</a></h5>
                     </div>
                 </div>
                 <div class="col-lg-3">
