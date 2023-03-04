@@ -83,7 +83,7 @@ class UserLoginView(LoginView):
 
             if user is not None and request_user.is_superuser is True and request_user.is_staff is True:
                 login(self.request, user)
-                return HttpResponse("Admin Login page will implement soon")
+                return HttpResponseRedirect(reverse('authority:authority'))
             
             elif user is not None and request_user.is_customer is True:
                 login(self.request, user)
