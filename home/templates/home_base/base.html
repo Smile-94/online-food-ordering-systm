@@ -25,6 +25,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+     <!-- jaquery cdn link -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -42,17 +45,17 @@
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i>admin@admin</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                {% comment %} <li>Free Shipping for all Order of $99</li> {% endcomment %}
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header__top__right">
                             <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                                <a href="https://www.facebook.com/somona.akter.16144" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.facebook.com/somona.akter.16144"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/somona.akter.16144"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.facebook.com/somona.akter.16144"><i class="fa fa-pinterest-p"></i></a>
                             </div>
                             <div class="header__top__right__auth">
                                 {% if user.is_authenticated %}
@@ -76,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="{% url 'home:index' %}">
                             <h3 class="text-success fw-bold"><i class="fa-solid fa-burger text-primary me-2"></i>SIZZ<span class="text-primary">LING</span></h3>
                         </a>
                     </div>
@@ -84,7 +87,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="{% url 'home:index' %}">Home</a></li>
+                            <li class="active"><a href="{% url 'home:index' %}">Home</a></li>
                             <li><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
@@ -95,7 +98,7 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li class="active"><a href="./contact.html">Contact</a></li>
+                            <li><a href="{% url 'home:contact' %}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -120,7 +123,7 @@
     <section class="hero hero-normal">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                {% comment %} <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
@@ -140,8 +143,8 @@
                             <li><a href="#">Fresh Bananas</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-9">
+                </div> {% endcomment %}
+                <div class="col-lg-12">
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
@@ -188,9 +191,11 @@
                         <a href="./index.html"><img src="{% static 'assets/img/logo.png' %}" alt=""></a>
                     </div>
                     <ul>
-                        <li>Address: 60-49 Road 11378 New York</li>
+                        <li>Address: H 46 Road -10
+                            Dhaka 1230
+                            Bangladesh</li>
                         <li>Phone: +65 11.188.888</li>
-                        <li>Email: hello@colorlib.com</li>
+                        <li>Email: admin@admin.com</li>
                     </ul>
                 </div>
             </div>
@@ -209,7 +214,7 @@
                         <li><a href="#">Who We Are</a></li>
                         <li><a href="#">Our Services</a></li>
                         <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{% url 'home:contact' %}">Contact</a></li>
                         <li><a href="#">Innovation</a></li>
                         <li><a href="#">Testimonials</a></li>
                     </ul>
@@ -224,10 +229,10 @@
                         <button type="submit" class="site-btn">Subscribe</button>
                     </form>
                     <div class="footer__widget__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="https://www.facebook.com/somona.akter.16144" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/somona.akter.16144" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/somona.akter.16144" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/somona.akter.16144" target="_blank"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
             </div>

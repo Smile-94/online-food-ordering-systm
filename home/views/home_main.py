@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Generic Classes
 from django.views.generic import TemplateView
 
+# Forms
+from home.forms import CustomerMessageForm
+
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'home/home.html'
@@ -18,6 +21,7 @@ class ContactView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = 'Contact With Us'
+        context["form"] = CustomerMessageForm
         return context
     
     
